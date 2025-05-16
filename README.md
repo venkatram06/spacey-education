@@ -13,7 +13,7 @@ An interactive educational experience about Mars Rover missions.
 
 ## Usage
 
-1. Open `index.html` in a web browser
+1. Open `index.html` in a web browser (HTML5)
 2. Enable your webcam when prompted
 3. Follow the interactive lesson
 4. Take the quiz and earn badges
