@@ -1,0 +1,116 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a237e, #3949ab);
+  color: white;
+}
+
+.avatar-container {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.avatar-speech-bubble {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 10px;
+  max-width: 400px;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.intro-section {
+  text-align: center;
+  padding: 40px;
+}
+
+.lesson-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#user-video {
+  width: 300px;
+  height: 200px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.quiz-section {
+  padding: 20px;
+}
+
+.quiz-question {
+  margin-bottom: 20px;
+}
+
+button {
+  background: #fff;
+  color: #1a237e;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 5px;
+}
+
+button:hover {
+  background: #e3f2fd;
+}
+
+.completion-section {
+  text-align: center;
+  padding: 40px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.gold {
+  background: #ffd700;
+  color: #000;
+}
+
+.silver {
+  background: #c0c0c0;
+}
+
+.bronze {
+  background: #cd7f32;
+}

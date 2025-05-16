@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacey Education - Mars Rover Mission</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .avatar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .lesson-content {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .camera-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        video {
+            width: 300px;
+            height: 200px;
+            border-radius: 5px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        button {
+            background: #fff;
+            color: #1a237e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #e3f2fd;
+        }
+        .quiz-section {
+            margin-top: 20px;
+        }
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .gold { background: #ffd700; color: #000; }
+        .silver { background: #c0c0c0; }
+        .bronze { background: #cd7f32; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="avatar">
+            <h1>Rover</h1>
+            <p>Hi there! I'm Rover, your space exploration guide. Today, we'll learn about Mars rover missions!</p>
+        </div>
+
+        <div class="lesson-content">
+            <h2>Mars Rover Mission</h2>
+            <p>Mars rovers are like remote-controlled cars that explore the Red Planet. They help us learn about Mars' surface and look for signs of life.</p>
+            <p>The first successful Mars rover was NASA's Sojourner in 1997. Since then, we've sent more advanced rovers like Spirit, Opportunity, Curiosity, and Perseverance.</p>
+            <p>These rovers use special wheels to move over rocky terrain and have cameras and scientific instruments to study Mars. They can even drill into rocks!</p>
+            <p>The latest rover, Perseverance, is searching for ancient microbial life and collecting samples that will be returned to Earth in the future.</p>
+        </div>
+
+        <div class="camera-container">
+            <video id="user-video" autoplay playsinline></video>
+            <button onclick="startCamera()">Enable Camera</button>
+        </div>
+
+        <div class="quiz-section">
+            <h3>Quiz Time!</h3>
+            <div class="quiz-question">
+                <h4>1. What was the name of the first successful Mars rover?</h4>
+                <button onclick="checkAnswer(0, true)">Sojourner</button>
+                <button onclick="checkAnswer(0, false)">Spirit</button>
+                <button onclick="checkAnswer(0, false)">Opportunity</button>
+                <button onclick="checkAnswer(0, false)">Curiosity</button>
+            </div>
+            <div class="quiz-question">
+                <h4>2. What is one of the main goals of Mars rovers?</h4>
+                <button onclick="checkAnswer(1, false)">To find water</button>
+                <button onclick="checkAnswer(1, true)">To study Mars' surface</button>
+                <button onclick="checkAnswer(1, false)">To build habitats</button>
+                <button onclick="checkAnswer(1, false)">To grow plants</button>
+            </div>
+            <div class="quiz-question">
+                <h4>3. How do Mars rovers move on the planet's surface?</h4>
+                <button onclick="checkAnswer(2, false)">Flying</button>
+                <button onclick="checkAnswer(2, false)">Swimming</button>
+                <button onclick="checkAnswer(2, true)">Special wheels</button>
+                <button onclick="checkAnswer(2, false)">Hovering</button>
+            </div>
+            <button onclick="submitQuiz()">Submit Quiz</button>
+        </div>
+
+        <div id="results" style="display: none;">
+            <h2>Great job!</h2>
+            <p id="score"></p>
+            <div id="badge" class="badge"></div>
+        </div>
+    </div>
+
+    <script>
+        let isCameraEnabled = false;
+        let answers = [];
+        let correctAnswers = [true, true, true];
+
+        function startCamera() {
+            if (isCameraEnabled) return;
+            
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    const video = document.getElementById('user-video');
+                    video.srcObject = stream;
+                    isCameraEnabled = true;
+                })
+                .catch(err => {
+                    console.error('Error accessing camera:', err);
+                    alert('Could not access camera. Please check permissions.');
+                });
+        }
+
+        function checkAnswer(questionIndex, isCorrect) {
+            answers[questionIndex] = isCorrect;
+        }
+
+        function submitQuiz() {
+            const correctCount = answers.filter(answer => answer === true).length;
+            const totalQuestions = answers.length;
+            const percentage = (correctCount / totalQuestions) * 100;
+
+            document.getElementById('score').textContent = `You scored ${correctCount}/${totalQuestions} correct answers`;
+            document.getElementById('results').style.display = 'block';
+
+            const badge = document.getElementById('badge');
+            if (percentage >= 90) {
+                badge.textContent = 'Gold Badge';
+                badge.className = 'badge gold';
+            } else if (percentage >= 70) {
+                badge.textContent = 'Silver Badge';
+                badge.className = 'badge silver';
+            } else {
+                badge.textContent = 'Bronze Badge';
+                badge.className = 'badge bronze';
+            }
+        }
+    </script>
+</body>
+</html>
