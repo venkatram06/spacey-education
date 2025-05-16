@@ -1,6 +1,6 @@
 # Spacey Education - Mars Rover Mission
 
-An interactive educational experience about Mars Rover missions, built with React and AI-powered interactions.
+An interactive educational experience about Mars Rover missions.
 
 ## Features
 
@@ -11,34 +11,30 @@ An interactive educational experience about Mars Rover missions, built with Reac
 - Progress tracking and badge rewards
 - Modern, responsive UI
 
-## Technical Stack
+## Usage
 
-- React with TypeScript
-- TensorFlow.js for AI interactions
-- Three.js for 3D visualization (planned)
+1. Open `index.html` in a web browser
+2. Enable your webcam when prompted
+3. Follow the interactive lesson
+4. Take the quiz and earn badges
+
+## Deployment
+
+The project is deployed on GitHub Pages.
+
+## Technical Implementation
+
+- Vanilla HTML5, CSS3, JavaScript
 - WebRTC for webcam integration
-- CSS3 for styling
+- Responsive design
+- Local storage for progress tracking
 
-## Setup Instructions
+## Educational Content
 
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Start the development server:
-```bash
-npm start
-```
-
-3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## Learning Objectives
-
-- Understand the history of Mars rover missions
-- Learn about different Mars rovers and their capabilities
-- Understand the scientific goals of Mars exploration
-- Learn about rover technology and how they operate on Mars
+- Mars rover history
+- Scientific goals of Mars exploration
+- Rover technology
+- Interactive quiz questions
 
 ## Quiz Topics
 
@@ -52,11 +48,3 @@ npm start
 - Gold Badge: 90% or higher score
 - Silver Badge: 70-89% score
 - Bronze Badge: Below 70% score
-
-## Future Enhancements
-
-- 3D visualization of Mars surface
-- Voice interaction with the avatar
-- More detailed scientific explanations
-- Expanded quiz system with more questions
-- Progress tracking across multiple lessons
